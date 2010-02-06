@@ -36,12 +36,12 @@
 
 <?php
 session_start();
-
 require_once("db.inc.php");
-
 ?>
 
-    <form method='POST' action='<?php $PHP_SELF ?>'>
+<center>
+
+    <form method='POST' action='handler.php'>
         <br />
         <b>Please Login:</b><br />
             Username: <br />
@@ -53,28 +53,8 @@ require_once("db.inc.php");
        <input type="Submit" name="login" value="Submit" tabindex="3" /><br />
     </form>
 
+</center>
 
 <?php
-
-if ($_POST['login']) {
-
-
-    if ($_POST['username'] AND $_POST['password']) {
-    
-    $validation = mysql_query("SELECT * FROM accounts WHERE username='{$_POST['username']}' AND password='".md5($_POST['password'])."'")
-        or die(mysql_error());
-    
-    $rowcount = mysql_num_rows($validation);
-     
-        if ($rowcount == 1) {
-            $_SESSION['username'] = md5($_POST['username'].$_POST['password']);
-            header("Location: index.php");
-        } else {
-            header("Location: login.php");
-        }
-    
-    }
-}
-
 require_once("footer.inc.php");
 ?>
