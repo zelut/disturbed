@@ -35,6 +35,7 @@ if (!isset($_SESSION['username'])) {
         <?php } ?>
 
         <li><a href="logout.php">Logout</a></li>
+        <li class="right">Logged in as: <?php print $_SESSION['username']; ?></li>
     </ul>
     <!-- NAVIGATION END -->
 
