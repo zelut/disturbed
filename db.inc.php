@@ -1,6 +1,5 @@
 <?php
 
-
 // only configurable options
 $username = "phpuser";
 $password = "secret";
