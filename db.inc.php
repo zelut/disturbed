@@ -2,12 +2,12 @@
 
 
 // only configurable options
-$user = "phpuser";
-$pass = "secret";
+$username = "phpuser";
+$password = "secret";
 $database = "disturbed";
 // end configurable options
 
-mysql_connect("localhost", "$user", "$pass")
+mysql_connect("localhost", "$username", "$password")
     or die(mysql_error());
 
 mysql_select_db("$database");
