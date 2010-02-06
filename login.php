@@ -4,7 +4,6 @@
 <title>Mental Health Tracker</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection" />
-
 </head>
 
 <body>
@@ -18,15 +17,10 @@
 
     <!-- NAVIGATION BEGIN -->
     <ul id="nav">
-
         <li><a href="index.php">Home</a></li>
-
         <li><a href="questionairre.php">Questionairre</a></li>
-
         <li><a href="reports.php">Reports</a></li>
-
         <li><a href="logout.php">Logout</a></li>
-
     </ul>
     <!-- NAVIGATION END -->
 
@@ -36,11 +30,9 @@
 
 <?php
 session_start();
-require_once("db.inc.php");
 ?>
 
 <center>
-
     <form method='POST' action='handler.php'>
         <br />
         <b>Please Login:</b><br />
@@ -48,11 +40,9 @@ require_once("db.inc.php");
                 <input type="text" name="username" tabindex="1" /><br />
             Password: <br />
                 <input type="password" name="password" tabindex="2" /><br />
-
             <br />
        <input type="Submit" name="login" value="Submit" tabindex="3" /><br />
     </form>
-
 </center>
 
 <?php
