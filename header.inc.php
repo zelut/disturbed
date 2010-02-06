@@ -26,15 +26,15 @@ if (!isset($_SESSION['username'])) {
 
     <!-- NAVIGATION BEGIN -->
     <ul id="nav">
-
         <li><a href="index.php">Home</a></li>
-
         <li><a href="questionairre.php">Questionairre</a></li>
-
         <li><a href="reports.php">Reports</a></li>
 
-        <li><a href="logout.php">Logout</a></li>
+        <?php if ($_SESSION['username'] === "admin") { ?>
+                <li><a href="admin.php">Admin</a></li>
+        <?php } ?>
 
+        <li><a href="logout.php">Logout</a></li>
     </ul>
     <!-- NAVIGATION END -->
 
