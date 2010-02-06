@@ -1,34 +1,39 @@
 <?php
+session_start();
 
 require_once("db.inc.php");
 
-// login logic
-if (isset($_POST['login'])) {
+// This avoids SQL Injection in POST vars 
+foreach ($_POST as $key => $value) {
+    $_POST[$key] = mysql_real_escape_string($value);
+}
 
-    if ($_POST['username'] AND $_POST['password']) {
+// This avoids SQL Injection in GET vars 
+foreach ($_GET as $key => $value) {
+    $_GET[$key] = mysql_real_escape_string($value);
+}
 
-    $validation = mysql_query("SELECT * FROM accounts WHERE username='{$_POST['username']}' AND password='".md5($_POST['password'])."'")
-        or die(mysql_error());
+if (!empty($_POST['login'])) {
 
-    $rowcount = mysql_num_rows($validation);
+    if (!empty($_POST['username']) && !empty($_POST['password'])) {
+    
+        $validation = mysql_query("SELECT * FROM accounts WHERE username='{$_POST['username']}' AND password='".md5($_POST['password'])."'")
+            or die(mysql_error());
+        
+        $rowcount = mysql_num_rows($validation);
+            
+            if ($rowcount == 1) {
+                $_SESSION['username'] = $_POST['username'];
+                header("Location: index.php");
+            } else {
+                header("Location: login.php");
+            }
 
-        if ($rowcount == 1) {
-            $_SESSION['username'] = md5($_POST['username'].$_POST['password']);
-            header("Location: index.php");
-        } else {
-            header("Location: login.php");
-        }
+    } else {
+        header("Location: login.php");
     }
+
+} else {
+    header("Location: login.php");
 }
-
-// main form submission logic
-if (isset($_POST['questionairre'])) {
-
-}
-
-// report generation logic
-if (isset($_POST['reports'])) {
-
-}
-
 ?>
