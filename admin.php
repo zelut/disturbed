@@ -1,10 +1,10 @@
 <?php
+require_once("header.inc.php");
 
-if ($_SESSION['username'] !== "admin") {
+if ($_SESSION['username'] != "admin") {
     header("Location: index.php");
 }
 
-require_once("header.inc.php");
 ?>
 
 <center>
