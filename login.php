@@ -33,12 +33,12 @@ session_start();
 <center>
     <form method="post" action="handler.php">
         <br />
-        <b>Please Login:</b><br />
+        <b>Please Login:</b><br /><br />
             Username: <br />
-                <input type="text" name="username" size="20" tabindex="1" /><br />
+                <input type="text" name="username" size="20" tabindex="1" /><br /><br />
             Password: <br />
                 <input type="password" name="password" size="20" tabindex="2" /><br />
-            <br />
+        <p>Forgot Password? | <a href="registration.php">Register</a></p>
        <input type="submit" name="login" value="submit" tabindex="3" /><br />
     </form>
 </center>
